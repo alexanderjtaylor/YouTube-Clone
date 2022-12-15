@@ -1,6 +1,9 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 import "./App.css";
+import { DATA } from "./LocalData";
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -15,6 +18,23 @@ import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
+
+  const [users, setUsers] = useState([DATA])
+
+  useEffect(() => {
+    //fetchUsers()
+  }, [])
+
+  const fetchUsers = async () => {
+    try {
+      let response = await axios.get("https://jsonplaceholder.typicode.com/users");
+      console.log(response.data)
+      setUsers(response.data)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
   return (
     <div>
       <Navbar />
@@ -24,6 +44,9 @@ function App() {
           element={
             <PrivateRoute>
               <HomePage />
+              {users && users.map(user => {
+                return <li key={user.id}>{user.name} {user.company.name}</li>
+              })}
             </PrivateRoute>
           }
         />
