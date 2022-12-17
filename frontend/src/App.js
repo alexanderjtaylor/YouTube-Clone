@@ -6,9 +6,11 @@ import "./App.css";
 import { DATA } from "./LocalData";
 
 // Pages Imports
-import HomePage from "./pages/HomePage/HomePage";
+import YouTubePage from "./pages/YouTubePage/YouTubePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import VideoResults from "./pages/VideoResultsPage/VideoResultsPage";
+import VideoMapper from "./components/VideoMapper/VideoMapper";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -19,7 +21,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
 
-  const [users, setUsers] = useState([DATA])
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
     //fetchUsers()
@@ -27,7 +29,7 @@ function App() {
 
   const fetchUsers = async () => {
     try {
-      let response = await axios.get("https://jsonplaceholder.typicode.com/users");
+      let response = await axios.get("https://www.googleapis.com/youtube/v3/search?q=reactmongoose&key=AIzaSyA-U1xR6szUTkhjPkEIY2o8iaUIZ7_4OlI&part=snippet&type=video&maxResults=5");
       console.log(response.data)
       setUsers(response.data)
     } catch (error) {
@@ -39,19 +41,10 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <HomePage />
-              {users && users.map(user => {
-                return <li key={user.id}>{user.name} {user.company.name}</li>
-              })}
-            </PrivateRoute>
-          }
-        />
+        <Route path="/" element={<PrivateRoute><YouTubePage /></PrivateRoute>}/>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/details/:videoId" element={<VideoResults />} />
       </Routes>
       <Footer />
     </div>
