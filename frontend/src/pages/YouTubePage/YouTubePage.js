@@ -4,13 +4,10 @@ import useAuth from "../../hooks/useAuth";
 import key from "../../apiKey";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import VideoMapper from "../../components/VideoMapper/VideoMapper";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import { useParams } from "react-router-dom";
 
-const YouTubePage = () => {
+const YouTubePage = ({videoData, setVideoData}) => {
   const [user, token] = useAuth();
-  const [videoData, setVideoData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("bob ross")
 
   useEffect(() => {
@@ -29,7 +26,11 @@ const YouTubePage = () => {
       <h1>Home Page for {user.username}!</h1>
       <SearchBar videoData = {videoData} setVideoData = {setVideoData}/>
       {videoData && videoData.map((video) => {
-    return <Link to={`/details/${video.id.videoId}`} key={video.id.videoId}>{video.snippet.title} {video.snippet.thumbnails.medium.url} {video.snippet.description}</Link>
+    return <Link to={`/details/${video.id.videoId}`} key={video.id.videoId}>
+      <h1>{video.snippet.title}</h1> 
+      <img src={video.snippet.thumbnails.medium.url} />
+      <p>{video.snippet.description}</p>
+      </Link>
   })};
     </div>
   );

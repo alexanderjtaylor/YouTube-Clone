@@ -1,40 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
+import key from "../../apiKey";
+import axios from 'axios';
 
 
-const VideoResults = (props) => {
+const VideoResults = ({videoData, setVideoData}) => {
 
     let {videoId} = useParams()
-
-    <iframe id="ytplayer" type="text/html" width="640" height="360"
-  src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
-  frameborder="0"></iframe>
-
-    const [videoData, setVideoData] = useState([]);
+    const [videoComments, setVideoComments] = useState([])
+    const [commentData, setCommentData] = useState([]);
+    const [relatedVideoData, setRelatedVideoData] = useState([]);
 
     useEffect(() => {
         fetchComments()
+        fetchRelatedVideos()
       }, []);
 
     const fetchComments = async () => {
         try {
-          let response = await axios.get(`http://127.0.0.1:8000/api/comment/${video.id.videoId}`);
+          let response = await axios.get(`http://127.0.0.1:8000/api/comment/${videoId}`);
           console.log(response.data)
-          setVideoData(response.data)
+          setVideoComments(response.data)
         } catch (error) {
           console.log(error.message)
         }
       }
 
-    return ( 
-        <form>
-            <div>
-                <li>{props.videoData.title}</li>
-                <li>{props.videoData.videoId}</li>
-                <li>{props.videoData.thumbnails}</li>
-                <li>{props.videoData.description}</li>
-            </div> 
-        </form>
+      const fetchRelatedVideos = async () => {
+        try {
+          let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=${key}`);
+          console.log(response.data)
+          setRelatedVideoData(response.data)
+        } catch (error) {
+          console.log(error.message)
+        }
+      }
+
+      const postComment = async (newComment) => {
+        try {
+          let response = await axios.post(`http://127.0.0.1:8000/api/comment/${videoId}`, newComment);
+          console.log(response.data)
+          setCommentData(response.data)
+        } catch (error) {
+          console.log(error.message)
+        }
+      }
+
+    return (
+        <div>
+            <iframe id="ytplayer" type="text/html" width="640" height="360"
+  src={`https://www.youtube.com/embed/${videoId}`}
+  frameborder="0"></iframe>
+                <li {...relatedVideoData}></li>
+                <li {...videoComments}></li>
+                <li {...commentData}></li>
+        </div> 
      );
 }
  
