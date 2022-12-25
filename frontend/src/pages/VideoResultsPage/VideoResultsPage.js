@@ -12,14 +12,14 @@ const VideoResults = ({videoData, setVideoData}) => {
     const [relatedVideoData, setRelatedVideoData] = useState([]);
 
     useEffect(() => {
-      fetchVideoData()
+        fetchVideoData()
         fetchComments()
         fetchRelatedVideos()
       }, []);
 
     
     const fetchVideoData = async () => {
-      let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${videoData.snippet.thumbnails.medium.url}&key=${key}&part=snippet&type=video&maxResults=1`);
+      let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${videoId}&key=${key}&part=snippet&type=video&maxResults=1`);
       setVideoData(response.data.items)
       console.log(response.data.items)
     };
@@ -56,11 +56,11 @@ const VideoResults = ({videoData, setVideoData}) => {
 
     return (
         <div>
-            <h1>{videoData.snippet.title}</h1>
+            <h1>{videoId.title}</h1>
             <iframe id="ytplayer" type="text/html" width="640" height="360"
   src={`https://www.youtube.com/embed/${videoId}`}
   frameborder="0"></iframe>
-            <p>{videoData.snippet.description}</p>
+            <p>{videoId.description}</p>
                 <li {...relatedVideoData}></li>
                 <li {...videoComments}></li>
                 <li {...commentData}></li>

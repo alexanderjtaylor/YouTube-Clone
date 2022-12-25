@@ -24,7 +24,7 @@ const YouTubePage = ({videoData, setVideoData}) => {
   return (
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
-      <SearchBar videoData = {videoData} setVideoData = {setVideoData}/>
+      <SearchBar videoData = {videoData} setVideoData = {setVideoData} searchTerm = {searchTerm} setSearchTerm = {setSearchTerm}/>
       {videoData && videoData.map((video) => {
     return <Link to={`/details/${video.id.videoId}`} key={video.id.videoId}>
       <h1>{video.snippet.title}</h1> 
