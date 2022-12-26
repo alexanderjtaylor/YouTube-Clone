@@ -8,7 +8,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 const YouTubePage = ({videoData, setVideoData}) => {
   const [user, token] = useAuth();
-  const [searchTerm, setSearchTerm] = useState("bob ross")
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
     fetchSearchResults()
