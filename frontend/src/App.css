@@ -13,8 +13,12 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
+h1 {
+  font-size: medium;
+}
+
 p {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 button {
@@ -55,4 +59,8 @@ button:hover {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+}
+
+.post-button {
+  font-size: medium;
 }

@@ -40,7 +40,7 @@ const Comments = (props) => {
         </div> 
   })};
             <input value={commentData} onChange={(event) => setCommentData(event.target.value)}/>
-            <button>Post Comment</button>
+            <button className="post-button">Post Comment</button>
         </form>
     );
 }
