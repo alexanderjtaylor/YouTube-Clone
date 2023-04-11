@@ -12,21 +12,21 @@ const VideoResults = ({videoData, setVideoData}) => {
     const [relatedVideoData, setRelatedVideoData] = useState([]);
 
     useEffect(() => {
-        fetchVideoData()
-        fetchRelatedVideos()
-      }, []);
+        fetchVideoData(videoId)
+        fetchRelatedVideos(videoId)
+      }, [videoId]);
 
     
-    const fetchVideoData = async () => {
-      let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${videoId}&key=${key}&part=snippet&type=video&maxResults=1`);
+    const fetchVideoData = async (Id) => {
+      let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${Id}&key=${key}&part=snippet&type=video&maxResults=1`);
       setVideoData(response.data.items)
       console.log(response.data.items)
     };
 
 
-      const fetchRelatedVideos = async () => {
+      const fetchRelatedVideos = async (Id) => {
         try {
-          let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=${key}&part=snippet&maxResults=3`);
+          let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${Id}&type=video&key=${key}&part=snippet&maxResults=3`);
           console.log(response.data.items)
           setRelatedVideoData(response.data.items)
         } catch (error) {

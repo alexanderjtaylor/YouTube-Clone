@@ -29,6 +29,15 @@ const RegisterPage = () => {
           />
         </label>
         <label>
+          Password:{" "}
+          <input
+            type="text"
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
           First Name:{" "}
           <input
             type="text"
@@ -52,15 +61,6 @@ const RegisterPage = () => {
             type="text"
             name="email"
             value={formData.email}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          Password:{" "}
-          <input
-            type="text"
-            name="password"
-            value={formData.password}
             onChange={handleInputChange}
           />
         </label>
