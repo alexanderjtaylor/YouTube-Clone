@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "b98f3ded-9a6e-45f8-825f-8ebe82e6ac71",
+		"name": "YouTube-Clone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23846677"
+	},
+	"item": [
+		{
+			"name": "Search For Related Videos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.googleapis.com/youtube/v3/search?type=video&relatedToVideoId=Oa0pMn0tvU4&key=AIzaSyA-U1xR6szUTkhjPkEIY2o8iaUIZ7_4OlI&part=snippet",
+					"protocol": "https",
+					"host": [
+						"www",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"youtube",
+						"v3",
+						"search"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "video"
+						},
+						{
+							"key": "relatedToVideoId",
+							"value": "Oa0pMn0tvU4"
+						},
+						{
+							"key": "key",
+							"value": "AIzaSyA-U1xR6szUTkhjPkEIY2o8iaUIZ7_4OlI"
+						},
+						{
+							"key": "part",
+							"value": "snippet"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search For Videos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.googleapis.com/youtube/v3/search?q=reactmongoose&key=AIzaSyA-U1xR6szUTkhjPkEIY2o8iaUIZ7_4OlI&part=snippet&type=video&maxResults=5",
+					"protocol": "https",
+					"host": [
+						"www",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"youtube",
+						"v3",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "reactmongoose"
+						},
+						{
+							"key": "key",
+							"value": "AIzaSyA-U1xR6szUTkhjPkEIY2o8iaUIZ7_4OlI"
+						},
+						{
+							"key": "part",
+							"value": "snippet"
+						},
+						{
+							"key": "type",
+							"value": "video"
+						},
+						{
+							"key": "maxResults",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
