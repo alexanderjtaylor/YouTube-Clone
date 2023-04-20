@@ -25,16 +25,17 @@ const YouTubePage = ({videoData, setVideoData}) => {
     <div className="container">
       <h1 className='welcome-header' style={{ color: 'whitesmoke' }}>Welcome, {user.username}</h1>
       <div className='welcome-header-wrapper'>
-      {/* <h1 style={{ align: 'left',color: 'whitesmoke' }}>Welcome, {user.username}</h1> */}
       <SearchBar videoData = {videoData} setVideoData = {setVideoData} searchTerm = {searchTerm} setSearchTerm = {setSearchTerm}/>
       </div>
+      <div className='entire-video'>
       {videoData && videoData.map((video) => {
     return <Link to={`/details/${video.id.videoId}`} key={video.id.videoId}>
-      <h1>{video.snippet.title}</h1> 
+      <h1 className='video-title'>{video.snippet.title}</h1> 
       <img src={video.snippet.thumbnails.medium.url} />
-      <p>{video.snippet.description}</p>
+      <p className='video-des'>{video.snippet.description}</p>
       </Link>
-  })};
+  })}
+    </div>
     </div>
   );
 };

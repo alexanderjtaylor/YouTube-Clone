@@ -103,3 +103,24 @@ button:hover {
   height: 40%;
   margin: 5%;
 }
+
+.entire-video {
+  margin: 70px;
+  color: whitesmoke;
+}
+
+.video-title {
+  margin-bottom: 10px;
+  color: whitesmoke;
+}
+
+a:-webkit-any-link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.video-des {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  color: lightgray;
+}
