@@ -14,11 +14,11 @@ html {
 }
 
 h1 {
-  font-size: medium;
+  font-size: small;
 }
 
 p {
-  font-size: 15px;
+  font-size: 12px;
 }
 
 button {
@@ -37,7 +37,8 @@ button:hover {
 
 .welcome-header {
   text-align: start;
-  padding: .5em;
+  color: black;
+  font-size: 16px;
 }
 
 .welcome-header-wrapper {
@@ -51,11 +52,11 @@ button:hover {
   width: 100%;
   text-align: center;
   padding: 4em;
-  background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/06/Free-Desktop-Starry-Night-Wallpaper-Images-Photos.jpg");
+  /* background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/06/Free-Desktop-Starry-Night-Wallpaper-Images-Photos.jpg");
       height: 100%;
       background-position: center;
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: cover; */
 }
 
 .form {
@@ -81,7 +82,6 @@ button:hover {
 
 .entire-search-bar {
   text-align: center;
-  margin-bottom: 20px;
   color: midnightblue;
   width: 100%;
 }
@@ -101,17 +101,17 @@ button:hover {
   color: midnightblue;
   width: 55%;
   height: 40%;
-  margin: 5%;
+  margin: 3%;
 }
 
 .entire-video {
   margin: 70px;
-  color: whitesmoke;
+  color: black;
 }
 
 .video-title {
   margin-bottom: 10px;
-  color: whitesmoke;
+  color: black;
 }
 
 a:-webkit-any-link {
@@ -119,8 +119,19 @@ a:-webkit-any-link {
   text-decoration: none;
 }
 
-.video-des {
+.channel-title {
   margin-top: 10px;
   margin-bottom: 50px;
-  color: lightgray;
+  color: slategrey;
 }
+
+.thumbnail {
+  border-radius: 10px;
+}
+
+.main-video {
+  width: 100%;
+  height: 400px;
+}
+
+

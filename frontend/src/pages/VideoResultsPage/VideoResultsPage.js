@@ -36,21 +36,22 @@ const VideoResults = ({videoData, setVideoData}) => {
 
     return (
         <div>
-            <iframe id="ytplayer" type="text/html" width="640" height="360"
+            <iframe className='main-video' id="ytplayer" type="text/html" width="640" height="360"
   src={`https://www.youtube.com/embed/${videoId}`}
   frameborder="0"></iframe>
 {videoData && videoData.map((video) => {
     return <div>
-      <h1>{video.snippet.title}</h1>
-      <p>{video.snippet.description}</p>
+      <h1 style={{fontSize:'20px'}}>{video.snippet.title}</h1>
+      <p style={{fontSize:'20px',color:'slategrey'}}>{video.snippet.channelTitle}</p>
       </div> 
-  })};
+  })}
   <Comments/>
   {relatedVideoData && relatedVideoData.map((video) => {
-    return <div>
+    return <div className='entire-video'>
       <Link to={`/details/${video.id.videoId}`} key={video.id.videoId}>
-      <h1>{video.snippet.title}</h1>
-      <img src={video.snippet.thumbnails.medium.url} />
+      <img className='thumbnail' src={video.snippet.thumbnails.medium.url} />
+      <h1 className='video-title'>{video.snippet.title}</h1>
+      <p className='channel-title'>{video.snippet.channelTitle}</p>
       </Link>
       </div> 
   })};
