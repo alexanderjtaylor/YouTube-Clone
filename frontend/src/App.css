@@ -33,15 +33,29 @@ button {
 
 button:hover {
   cursor: pointer;
-  color: white;
-  background-color: steelblue;
+}
+
+.welcome-header {
+  text-align: start;
+  padding: .5em;
+}
+
+.welcome-header-wrapper {
+  display: inline-block;
+  width: 65%;
 }
 
 .container {
   margin: 0 auto;
-  max-width: 600px;
-  overflow: auto;
+  height: 100%;
+  width: 100%;
   text-align: center;
+  padding: 4em;
+  background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/06/Free-Desktop-Starry-Night-Wallpaper-Images-Photos.jpg");
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
 }
 
 .form {
@@ -49,7 +63,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 1rem;
+  gap: 3rem;
 }
 
 .form input {
@@ -63,4 +77,29 @@ button:hover {
 
 .post-button {
   font-size: medium;
+}
+
+.entire-search-bar {
+  text-align: center;
+  margin-bottom: 20px;
+  color: midnightblue;
+  width: 100%;
+}
+
+.search-btn {
+  background-color: transparent;
+  border: 2px solid midnightblue;
+  border-radius: 8px;
+  color: midnightblue;
+  font-size: clamp(15px, .5vw, 30px);
+  font-family: inherit;
+  margin-bottom: 2%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.search-box {
+  color: midnightblue;
+  width: 55%;
+  height: 40%;
+  margin: 5%;
 }

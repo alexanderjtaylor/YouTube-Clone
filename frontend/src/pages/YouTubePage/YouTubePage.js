@@ -8,7 +8,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 const YouTubePage = ({videoData, setVideoData}) => {
   const [user, token] = useAuth();
-  const [searchTerm, setSearchTerm] = useState("Chicago Cubs")
+  const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
     fetchSearchResults()
@@ -23,8 +23,11 @@ const YouTubePage = ({videoData, setVideoData}) => {
 
   return (
     <div className="container">
-      <h1>Home Page for {user.username}!</h1>
+      <h1 className='welcome-header' style={{ color: 'whitesmoke' }}>Welcome, {user.username}</h1>
+      <div className='welcome-header-wrapper'>
+      {/* <h1 style={{ align: 'left',color: 'whitesmoke' }}>Welcome, {user.username}</h1> */}
       <SearchBar videoData = {videoData} setVideoData = {setVideoData} searchTerm = {searchTerm} setSearchTerm = {setSearchTerm}/>
+      </div>
       {videoData && videoData.map((video) => {
     return <Link to={`/details/${video.id.videoId}`} key={video.id.videoId}>
       <h1>{video.snippet.title}</h1> 

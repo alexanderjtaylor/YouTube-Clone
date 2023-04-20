@@ -15,14 +15,14 @@ const Comments = (props) => {
       }, []);
 
     const getComments = async () => {
-        let response = await axios.get(`http://127.0.0.1:8000/api/comment/${videoId}`);
+        let response = await axios.get(`http://127.0.0.1:8000/api/comment/${videoId}/`);
         setVideoComments(response.data.items)
         console.log(response.data.items)
     }
 
     const postComment = async (newComment) => {
         try {
-          let response = await axios.post(`http://127.0.0.1:8000/api/comment/${videoId}`, newComment);
+          let response = await axios.post(`http://127.0.0.1:8000/api/comment/${videoId}/`, newComment);
           console.log(response.data)
           setCommentData(response.data)
         } catch (error) {

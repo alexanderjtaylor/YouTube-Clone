@@ -24,9 +24,9 @@ const SearchBar = (props) => {
     }
 
     return ( 
-        <form onSubmit={searchVideo}>
-            <input value={props.searchTerm} onChange={(event) => props.setSearchTerm(event.target.value)}/>
-            <button>Search</button>
+        <form className='entire-search-bar' onSubmit={searchVideo}>
+            <input className='search-box' value={props.searchTerm} onChange={(event) => props.setSearchTerm(event.target.value)}/>
+            <button className='button-85'>Find</button>
         </form>
     );
 }
