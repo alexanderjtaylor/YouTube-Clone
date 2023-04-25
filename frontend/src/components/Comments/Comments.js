@@ -16,13 +16,13 @@ const Comments = (props) => {
 
     const getComments = async () => {
         let response = await axios.get(`http://127.0.0.1:8000/api/comment/${videoId}/`);
-        setVideoComments(response.data.items)
-        console.log(response.data.items)
+        setVideoComments(response.data)
+        console.log(response.data)
     }
 
     const postComment = async (newComment) => {
         try {
-          let response = await axios.post(`http://127.0.0.1:8000/api/comment/${videoId}/`, newComment);
+          let response = await axios.post(`http://127.0.0.1:8000/api/comment/${videoId}/post-comment`, newComment);
           console.log(response.data)
           setCommentData(response.data)
         } catch (error) {
@@ -30,17 +30,28 @@ const Comments = (props) => {
         }
       }
 
+      function handleSubmit(event) {
+        event.preventDefault();
+        let newComment = {
+          video_id: commentData.video_id,
+          text: commentData.text,
+          user: commentData.user.id,
+        };
+        console.log(newComment)
+        postComment(newComment)
+    }
+
     return ( 
-        <form onSubmit={postComment}>
+        <form className='comment-form' onSubmit={handleSubmit}>
    
         {videoComments && videoComments.map((comment) => {
         return <div>
         <p>{comment.text}</p>
         <p>{comment.user.username}</p>
         </div> 
-  })};
-            <input value={commentData} onChange={(event) => setCommentData(event.target.value)}/>
-            <button className="post-button">Post Comment</button>
+  })}
+            <input className='comment-box' value={commentData} onChange={(event) => setCommentData(event.target.value)}/>
+            <button className='button-85'>Post</button>
         </form>
     );
 }

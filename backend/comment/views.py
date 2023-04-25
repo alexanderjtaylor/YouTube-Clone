@@ -7,7 +7,7 @@ from .serializers import CommentSerializer
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-def user_comment(request):
+def user_comment(request, videoId):
     print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
         serializer = CommentSerializer(data=request.data)

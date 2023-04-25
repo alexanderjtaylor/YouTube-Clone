@@ -134,4 +134,16 @@ a:-webkit-any-link {
   height: 400px;
 }
 
+.comment-form {
+  margin-top: 2.5%;
+}
+
+.comment-box {
+  width: 45%;
+  height: 80%;
+  margin-right: 3.5%;
+  margin-left: 3.5%;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+}
 
