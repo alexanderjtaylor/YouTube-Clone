@@ -39,6 +39,7 @@ button:hover {
   text-align: start;
   color: black;
   font-size: 16px;
+  margin-bottom: 5%;
 }
 
 .welcome-header-wrapper {
@@ -106,15 +107,16 @@ button:hover {
 }
 
 .entire-video-home {
-  margin: 70px;
+  margin-top: 70px;
   color: black;
 }
 
 .entire-video {
   color: black;
-  margin-left: 6%;
+  margin-left: 9%;
   margin-top: 2%;
   margin-bottom: 2%;
+  display: inline-flex;
 }
 
 .video-title {
@@ -155,13 +157,12 @@ a:-webkit-any-link {
 }
 
 .comment-box {
-  width: 35%;
-  height: 80%;
-  margin-right: 2.5%;
-  margin-left: 1.5%;
-  padding-top: 1.5%;
-  padding-bottom: 1.5%;
-  border-radius: 4px;
+  width: 50%;
+    height: 80%;
+    margin-right: 2.5%;
+    margin-left: 1.5%;
+    padding-top: .5%;
+    padding-bottom: .5%;
 }
 
 .comment-section {
@@ -195,3 +196,7 @@ a:-webkit-any-link {
   color: slategrey;
   margin-left: 1%;
 }
+/* 
+.comment-section-wrapper {
+  margin-bottom: 5%;
+} */

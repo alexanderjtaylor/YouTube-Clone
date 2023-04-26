@@ -45,7 +45,7 @@ const VideoResults = ({videoData, setVideoData}) => {
       <p className='video-results-channel-title'>{video.snippet.channelTitle}</p>
       </div> 
   })}
-  <Comments/>
+  <div className='related-videos'>
   {relatedVideoData && relatedVideoData.map((video) => {
     return <div className='entire-video'>
       <Link to={`/details/${video.id.videoId}`} key={video.id.videoId}>
@@ -54,7 +54,8 @@ const VideoResults = ({videoData, setVideoData}) => {
       <p className='channel-title'>{video.snippet.channelTitle}</p>
       </Link>
       </div> 
-  })};
+  })}</div>
+  <Comments/>
         </div> 
      );
 }

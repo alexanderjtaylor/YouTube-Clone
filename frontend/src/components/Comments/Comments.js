@@ -55,13 +55,14 @@ const Comments = (props) => {
             <input className='comment-box' value={commentData} onChange={(event) => setCommentData(event.target.value)}/>
             <button className='button-85'>Post</button>
         </div>
+        <div className="comment-section-wrapper">
         <p className="comment-count">{videoComments.length} Comments</p>
         {videoComments && videoComments.map((comment) => {
         return <div className="comment-section">
         <p className="comment-username">{comment.user.username}</p>
         <p className="comment-text">{comment.text}</p>
-        </div> 
-  })}
+        </div>
+  })}</div>
         </form>
     );
 }
