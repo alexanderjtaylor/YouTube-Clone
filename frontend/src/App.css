@@ -42,8 +42,7 @@ button:hover {
 }
 
 .welcome-header-wrapper {
-  display: inline-block;
-  width: 65%;
+  width: 100%;
 }
 
 .container {
@@ -52,11 +51,6 @@ button:hover {
   width: 100%;
   text-align: center;
   padding: 4em;
-  /* background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/06/Free-Desktop-Starry-Night-Wallpaper-Images-Photos.jpg");
-      height: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover; */
 }
 
 .form {
@@ -82,7 +76,6 @@ button:hover {
 
 .entire-search-bar {
   text-align: center;
-  color: midnightblue;
   width: 100%;
 }
 
@@ -90,7 +83,6 @@ button:hover {
   background-color: transparent;
   border: 2px solid midnightblue;
   border-radius: 8px;
-  color: midnightblue;
   font-size: clamp(15px, .5vw, 30px);
   font-family: inherit;
   margin-bottom: 2%;
@@ -98,20 +90,36 @@ button:hover {
 }
 
 .search-box {
-  color: midnightblue;
-  width: 55%;
-  height: 40%;
-  margin: 3%;
+  width: 50%;
+  margin-right: 3%;
 }
 
-.entire-video {
+.channel-title-home {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  color: slategrey;
+}
+
+.video-title-home {
+  margin-bottom: 10px;
+  color: black;
+}
+
+.entire-video-home {
   margin: 70px;
   color: black;
 }
 
-.video-title {
-  margin-bottom: 10px;
+.entire-video {
   color: black;
+  margin-left: 6%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.video-title {
+  color: black;
+  width: 300px;
 }
 
 a:-webkit-any-link {
@@ -120,9 +128,9 @@ a:-webkit-any-link {
 }
 
 .channel-title {
-  margin-top: 10px;
-  margin-bottom: 50px;
   color: slategrey;
+  width: 300px;
+  display: block;
 }
 
 .thumbnail {
@@ -138,12 +146,52 @@ a:-webkit-any-link {
   margin-top: 2.5%;
 }
 
-.comment-box {
-  width: 45%;
-  height: 80%;
-  margin-right: 3.5%;
-  margin-left: 3.5%;
-  padding-top: 2.5%;
-  padding-bottom: 2.5%;
+.comment-count {
+  text-indent: .5%;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  border-bottom: 0.2px solid rgba(119, 136, 153, 0.577);
 }
 
+.comment-box {
+  width: 35%;
+  height: 80%;
+  margin-right: 2.5%;
+  margin-left: 1.5%;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+  border-radius: 4px;
+}
+
+.comment-section {
+  padding: .2%;
+  width: 100%;
+  height: 100%;
+  border-bottom: .2px solid rgba(119, 136, 153, 0.577);
+}
+
+.user-comment {
+  margin-bottom: 2%;
+}
+
+.comment-text {
+  color: black;
+  margin-left: .5%;
+}
+
+.comment-username {
+  color: slategray;
+  margin-left: .5%;
+}
+
+.video-results-video-title {
+  font-size: 20px;
+  margin-left: 1%;
+}
+
+.video-results-channel-title {
+  font-size: 20px;
+  color: slategrey;
+  margin-left: 1%;
+}

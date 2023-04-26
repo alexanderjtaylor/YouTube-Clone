@@ -41,8 +41,8 @@ const VideoResults = ({videoData, setVideoData}) => {
   frameborder="0"></iframe>
 {videoData && videoData.map((video) => {
     return <div>
-      <h1 style={{fontSize:'20px'}}>{video.snippet.title}</h1>
-      <p style={{fontSize:'20px',color:'slategrey'}}>{video.snippet.channelTitle}</p>
+      <h1 className='video-results-video-title'>{video.snippet.title}</h1>
+      <p className='video-results-channel-title'>{video.snippet.channelTitle}</p>
       </div> 
   })}
   <Comments/>
