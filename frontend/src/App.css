@@ -203,6 +203,40 @@ a:-webkit-any-link {
   border: none;
   outline: none;
   color: rgb(255, 255, 255);
+  background: green;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-size: 10px;
+}
+
+.icon-btn-dislike {
+  padding: 0.6em 2em;
+  margin: 10px;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: red;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-size: 10px;
+}
+
+.icon-btn-notclicked {
+  padding: 0.6em 2em;
+  margin: 10px;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
   background: #111;
   cursor: pointer;
   position: relative;
@@ -214,7 +248,7 @@ a:-webkit-any-link {
   font-size: 10px;
 }
 
-.icon-btn-like:before {
+/* .icon-btn-like:before {
   content: "";
   background: linear-gradient(
     45deg,
@@ -264,23 +298,6 @@ a:-webkit-any-link {
   left: 0;
   top: 0;
   border-radius: 10px;
-}
-
-.icon-btn-dislike {
-  padding: 0.6em 2em;
-  margin: 10px;
-  border: none;
-  outline: none;
-  color: rgb(255, 255, 255);
-  background: #111;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  font-size: 10px;
 }
 
 .icon-btn-dislike:before {
@@ -347,6 +364,19 @@ i {
   margin: 5px;
 }
 
-
 .seatButton { padding: 5px; border: 1px solid #ccc; background: yellow; }
 input:checked + .seatButton { background: red; }
+
+.liked { background-color: green; }
+.notliked { background: linear-gradient(
+  45deg,
+  #ff0000,
+  #ff7300,
+  #fffb00,
+  #48ff00,
+  #00ffd5,
+  #002bff,
+  #7a00ff,
+  #ff00c8,
+  #ff0000
+); } */

@@ -10,6 +10,8 @@ const Comments = (props) => {
     let {videoId} = useParams()
     const [videoComments, setVideoComments] = useState([])
     const [commentData, setCommentData] = useState([]);
+    const [clickedLike, setClickedLike ] = useState(false);
+    const [clickedDislike, setClickedDislike] = useState(false);
 
     useEffect(() => {
         getComments()
@@ -49,6 +51,16 @@ const Comments = (props) => {
         postComment(newComment)
     }
 
+    function handleClickLike() {
+      setClickedLike(prev => !prev);
+      setClickedDislike(false);
+    }
+
+    function handleClickDislike() {
+      setClickedDislike(prev => !prev);
+      setClickedLike(false);
+    }
+
     return ( 
         <form className='comment-form' onSubmit={handleSubmit}>
         <div className="user-comment">
@@ -61,9 +73,10 @@ const Comments = (props) => {
         return <div className="comment-section">
         <p className="comment-username">{comment.user.username}</p>
         <p className="comment-text">{comment.text}</p>
-        <label><input type="checkbox" /><span class="seatButton">H1</span></label>
-        <button className="icon-btn-like"><i class="fas fa-thumbs-up"></i> Like</button>
-        <button className="icon-btn-dislike"><i class="fas fa-thumbs-down"></i> Dislike</button>
+        {/* <button className={clicked ? 'liked' : 'notliked'} onClick={handleClick}>Click me</button> */}
+        {/* <label><input type="checkbox" /><span class="seatButton">H1</span></label> */}
+        <button className={clickedLike ? 'icon-btn-like' : 'icon-btn-notclicked'} onClick={handleClickLike}><i class="fas fa-thumbs-up"></i> Like</button>
+        <button className={clickedDislike ? 'icon-btn-dislike' : 'icon-btn-notclicked'} onClick={handleClickDislike}><i class="fas fa-thumbs-down"></i> Dislike</button>
         <p className="comment-text">Likes: {comment.likes}</p>
         <p className="comment-text"> Dislikes: {comment.dislikes}</p>
         </div>
