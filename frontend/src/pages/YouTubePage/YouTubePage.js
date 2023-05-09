@@ -20,6 +20,15 @@ const YouTubePage = ({videoData, setVideoData}) => {
     console.log(response.data.items)
   };
 
+  function unEscape(htmlStr) {
+    htmlStr = htmlStr.replace(/&lt;/g , "<");	 
+    htmlStr = htmlStr.replace(/&gt;/g , ">");     
+    htmlStr = htmlStr.replace(/&quot;/g , "\"");  
+    htmlStr = htmlStr.replace(/&#39;/g , "\'");   
+    htmlStr = htmlStr.replace(/&amp;/g , "&");
+    return htmlStr;
+}
+
 
   return (
     <div className="container">
@@ -31,8 +40,8 @@ const YouTubePage = ({videoData, setVideoData}) => {
       {videoData && videoData.map((video) => {
     return <Link to={`/details/${video.id.videoId}`} key={video.id.videoId}>
       <img className='thumbnail' src={video.snippet.thumbnails.medium.url} />
-      <h1 className='video-title-home'>{video.snippet.title}</h1> 
-      <p className='channel-title-home'>{video.snippet.channelTitle}</p>
+      <h1 className='video-title-home'>{unEscape(video.snippet.title)} </h1> 
+      <p className='channel-title-home'>{unEscape(video.snippet.channelTitle)}</p>
       </Link>
   })}
     </div>

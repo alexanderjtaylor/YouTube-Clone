@@ -61,6 +61,7 @@ const Comments = (props) => {
         return <div className="comment-section">
         <p className="comment-username">{comment.user.username}</p>
         <p className="comment-text">{comment.text}</p>
+        <label><input type="checkbox" /><span class="seatButton">H1</span></label>
         <button className="icon-btn-like"><i class="fas fa-thumbs-up"></i> Like</button>
         <button className="icon-btn-dislike"><i class="fas fa-thumbs-down"></i> Dislike</button>
         <p className="comment-text">Likes: {comment.likes}</p>

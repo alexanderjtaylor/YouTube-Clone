@@ -346,3 +346,7 @@ i {
   font-size: 1em;
   margin: 5px;
 }
+
+
+.seatButton { padding: 5px; border: 1px solid #ccc; background: yellow; }
+input:checked + .seatButton { background: red; }
