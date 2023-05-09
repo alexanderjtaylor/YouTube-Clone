@@ -40,7 +40,7 @@ const YouTubePage = ({videoData, setVideoData}) => {
       {videoData && videoData.map((video) => {
     return <Link to={`/details/${video.id.videoId}`} key={video.id.videoId}>
       <img className='thumbnail' src={video.snippet.thumbnails.medium.url} />
-      <h1 className='video-title-home'>{unEscape(video.snippet.title)} </h1> 
+      <h1 className='video-title-home'>{unEscape(video.snippet.title)}</h1> 
       <p className='channel-title-home'>{unEscape(video.snippet.channelTitle)}</p>
       </Link>
   })}

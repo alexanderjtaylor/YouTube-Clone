@@ -34,6 +34,14 @@ const VideoResults = ({videoData, setVideoData}) => {
         }
       }
 
+      function unEscape(htmlStr) {
+        htmlStr = htmlStr.replace(/&lt;/g , "<");	 
+        htmlStr = htmlStr.replace(/&gt;/g , ">");     
+        htmlStr = htmlStr.replace(/&quot;/g , "\"");  
+        htmlStr = htmlStr.replace(/&#39;/g , "\'");   
+        htmlStr = htmlStr.replace(/&amp;/g , "&");
+        return htmlStr;}
+
     return (
         <div>
             <iframe className='main-video' id="ytplayer" type="text/html" width="640" height="360"
@@ -41,8 +49,8 @@ const VideoResults = ({videoData, setVideoData}) => {
   frameborder="0"></iframe>
 {videoData && videoData.map((video) => {
     return <div>
-      <h1 className='video-results-video-title'>{video.snippet.title}</h1>
-      <p className='video-results-channel-title'>{video.snippet.channelTitle}</p>
+      <h1 className='video-results-video-title'>{unEscape(video.snippet.title)}</h1>
+      <p className='video-results-channel-title'>{unEscape(video.snippet.channelTitle)}</p>
       </div> 
   })}
   <div className='related-videos'>
@@ -50,8 +58,8 @@ const VideoResults = ({videoData, setVideoData}) => {
     return <div className='entire-video'>
       <Link to={`/details/${video.id.videoId}`} key={video.id.videoId}>
       <img className='thumbnail' src={video.snippet.thumbnails.medium.url} />
-      <h1 className='video-title'>{video.snippet.title}</h1>
-      <p className='channel-title'>{video.snippet.channelTitle}</p>
+      <h1 className='video-title'>{unEscape(video.snippet.title)}</h1>
+      <p className='channel-title'>{unEscape(video.snippet.channelTitle)}</p>
       </Link>
       </div> 
   })}</div>
